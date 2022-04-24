@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AllRecipesPageComponent } from './all-recipes-page/all-recipes-page.component';
+import { RecipesRoutingModule } from './recipes-routing.module';
 
 
 
@@ -9,7 +10,8 @@ import { AllRecipesPageComponent } from './all-recipes-page/all-recipes-page.com
     AllRecipesPageComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RecipesRoutingModule
   ]
 })
 export class RecipesModule { }
