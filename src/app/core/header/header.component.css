@@ -1,9 +1,36 @@
-ul {
-    list-style-type: none;
+
+header {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
+    padding: 50px 0;
 }
 
-li {
+header a {
+    text-decoration: none;
+    color: #000;
+}
+
+header a:hover {
+    color: rgb(152, 37, 37);
+}
+
+.logo a {
+    font-size: 3em;
+    font-family: 'Grape Nuts', cursive;
+}
+
+header nav {
+    margin-left: auto;
+}
+
+header nav ul li {
     display: inline-block;
+    margin: 0 20px;
+    font-size: 1em;
 }
 
-
+header nav ul li:last-child {
+    margin-right: 0;
+}

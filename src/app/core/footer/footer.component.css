@@ -1,0 +1,18 @@
+
+footer {
+    width: 100%;
+    margin-top: 50px;
+    padding: 50px;
+    font-size: 1.1em;
+    text-align: center;
+    background-color: #F9F9F9;
+    color: #525252;
+}
+
+footer a {
+    font-size: 2em;
+    font-family: 'Grape Nuts', cursive;
+    color: inherit;
+    text-decoration: none;
+    margin-right: 30px;
+}
