@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RecipeService } from 'src/app/core/recipe.service';
 import { IRecipe } from '../../../core/interfaces';
 
@@ -8,7 +8,7 @@ import { IRecipe } from '../../../core/interfaces';
   styleUrls: ['./recipe-list.component.css']
 })
 
-export class RecipeListComponent implements OnInit, AfterViewInit {
+export class RecipeListComponent implements OnInit {
 
   recipeList!: IRecipe[];
 
@@ -16,12 +16,8 @@ export class RecipeListComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.recipeService.loadRecipeList().subscribe(recipeList => {
-      this.recipeList = recipeList;
+      this.recipeList = recipeList.slice(1);
     });
-  }
-
-  ngAfterViewInit(): void {
-    console.log('View was initialized');
   }
 
 }

@@ -1,7 +1,8 @@
-<div class="recipe-card">
-    <div class="recipe-img-wrapper">
-        <a href="#" class="recipe-img" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTirYylLkYffscIAsH76N4jYAVpckOodfqbuQ&usqp=CAU');"></a>
-    </div>
-    <p>Added by Admin</p>
-    <a href="#"><h3>Recipe name some recipe</h3></a>
+<div class="recipe-img-wrapper">
+    <a href="#" class="recipe-img"
+        style="background-image: url('{{recipe.imgUrl}}');"></a>
 </div>
+<p>Added by {{recipe.ownerName}}</p>
+<a href="#">
+    <h3>{{recipe.title}}</h3>
+</a>

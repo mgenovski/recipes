@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { IRecipe } from 'src/app/core/interfaces';
 
 @Component({
   selector: 'app-recipe-list-item',
   templateUrl: './recipe-list-item.component.html',
-  styleUrls: ['./recipe-list-item.component.css']
+  styleUrls: ['./recipe-list-item.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class RecipeListItemComponent implements OnInit {
 
@@ -13,7 +14,6 @@ export class RecipeListItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.recipe);
   }
 
 }

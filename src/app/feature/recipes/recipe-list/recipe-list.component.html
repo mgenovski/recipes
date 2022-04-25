@@ -1,7 +1,8 @@
-<div *ngIf="recipeList">
-    <app-recipe-list-item *ngFor="let recipe of recipeList" [recipe]="recipe"></app-recipe-list-item>
-    <div *ngIf="recipeList.length === 0">No Recipes!</div>
-</div>
+<!-- <div class="recipe-list" *ngIf="recipeList"> -->
+<ng-container *ngIf="recipeList">
+    <app-recipe-list-item class="recipe-card" *ngFor="let recipe of recipeList" [recipe]="recipe"></app-recipe-list-item>
+</ng-container>
+<!-- </div> -->
 <div *ngIf="!recipeList">
-    Loading...
+    No Recipes!
 </div>
