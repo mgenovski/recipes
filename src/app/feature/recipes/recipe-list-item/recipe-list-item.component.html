@@ -1,8 +1,8 @@
 <div class="recipe-img-wrapper">
-    <a href="#" class="recipe-img"
+    <a routerLink="recipe/{{recipe._id}}" class="recipe-img"
         style="background-image: url('{{recipe.imgUrl}}');"></a>
 </div>
 <p>Added by {{recipe.ownerName}}</p>
-<a href="#">
+<a routerLink="recipe/{{recipe._id}}">
     <h3>{{recipe.title}}</h3>
 </a>

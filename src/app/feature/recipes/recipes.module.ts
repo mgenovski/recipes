@@ -5,6 +5,7 @@ import { RecipesRoutingModule } from './recipes-routing.module';
 import { RecipeListItemComponent } from './recipe-list-item/recipe-list-item.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { HomeRecipesComponent } from './home-recipes/home-recipes.component';
+import { RecipeDetailsPageComponent } from './recipe-details-page/recipe-details-page.component';
 
 
 
@@ -13,7 +14,8 @@ import { HomeRecipesComponent } from './home-recipes/home-recipes.component';
     AllRecipesPageComponent,
     RecipeListItemComponent,
     RecipeListComponent,
-    HomeRecipesComponent
+    HomeRecipesComponent,
+    RecipeDetailsPageComponent
   ],
   imports: [
     CommonModule,
