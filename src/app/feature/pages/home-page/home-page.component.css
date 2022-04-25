@@ -77,6 +77,10 @@
     transform: scale(1.1);
 }
 
+.recipe-card:hover a {
+    color: #FF8359;
+}
+
 .recipe-card p {
     font-size: 0.8em;
     margin: 10px 0;
@@ -91,4 +95,5 @@
 .recipe-card a {
     color: #000;
     text-decoration: none;
+    transition: all 0.3s;
 }
