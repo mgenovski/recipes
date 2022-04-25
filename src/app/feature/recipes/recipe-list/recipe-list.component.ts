@@ -16,7 +16,7 @@ export class RecipeListComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipeService.loadRecipeList().subscribe(recipeList => {
-      this.recipeList = recipeList.slice(1);
+      this.recipeList = recipeList.slice(1,7);
     });
   }
 
