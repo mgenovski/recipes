@@ -5,8 +5,11 @@ import { RecipeDetailsPageComponent } from "./recipe-details-page/recipe-details
 
 const routes: Routes = [
     {
-        path: 'all-recipes',
-        component: AllRecipesPageComponent
+        path: 'recipes',
+        component: AllRecipesPageComponent,
+        children: [
+            
+        ]
     },
     {
         path: '',
