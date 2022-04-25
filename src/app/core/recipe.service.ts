@@ -14,7 +14,7 @@ export class RecipeService {
   constructor(private http: HttpClient) { }
 
   loadRecipeList(): Observable<IRecipe[]> {
-    return this.http.get<IRecipe[]>(`${apiUrl}/recipes`);
+    return this.http.get<IRecipe[]>(`${apiUrl}/recipes?sortBy=_createdOn`);
   }
 
 }
