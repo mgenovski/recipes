@@ -13,18 +13,18 @@ export class UserService {
   currentUser!: IUser;
 
   get isLogged() {
-    return !!this.currentUser;
+    return !!localStorage.getItem('accessToken');
   }
 
   constructor(private httpClient: HttpClient) {
-    console.log('UserService#constructor')
+    
   }
 
   login$(userData: { email: string, password: string }): Observable<IUser> {
     return this.httpClient
       .post<IUser>(`${environment.apiUrl}/users/login`, userData, { observe: 'response' })
       .pipe(
-        tap(response => console.log(response)),
+        tap(response => {}),
         map(response => response.body as any),
         tap(user => this.currentUser = user)
       )
@@ -36,6 +36,7 @@ export class UserService {
   }
 
   logout(): void {
+    localStorage.clear();
   }
 
   register$(userData: CreateUserDto): Observable<IUser> {
