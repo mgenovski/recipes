@@ -17,4 +17,8 @@ export class RecipeService {
     return this.http.get<IRecipe[]>(`${apiUrl}/recipes?sortBy=_createdOn%20desc`);
   }
 
+  loadRecipeById(id: string): Observable<IRecipe> {
+    return this.http.get<IRecipe>(`${apiUrl}/recipes/${id}`);
+  }
+
 }

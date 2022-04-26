@@ -7,14 +7,6 @@ const routes: Routes = [
     {
         path: 'recipes',
         component: AllRecipesPageComponent,
-        children: [
-            
-        ]
-    },
-    {
-        path: '',
-        pathMatch: 'full',
-        component: HomeRecipesComponent
     },
     {
         path: 'recipe/:recipeId',
