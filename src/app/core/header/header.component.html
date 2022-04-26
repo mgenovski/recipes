@@ -6,12 +6,13 @@
         <ul>
             <li><a routerLink="/">Home</a></li>
             <li><a routerLink="/recipes">All recipes</a></li>
-            <li><a routerLink="/login">Login</a></li>
-            <li><a routerLink="/register">Register</a></li>
+            <ng-container *ngIf="!isLogged">
+                <li><a routerLink="/login">Login</a></li>
+                <li><a routerLink="/register">Register</a></li>
+            </ng-container>
+            <ng-container *ngIf="!!isLogged">
+                <li><a href="#" (click)="logoutHandler()">Logout</a></li>
+            </ng-container>
         </ul>
     </nav>
 </header>
-<!-- <ul>
-    <li><a routerLink="/" routerLinkActive="active">Home</a></li>
-    <li><a routerLink="/all-recipes" routerLinkActive="active">All recipes</a></li>
-</ul> -->
