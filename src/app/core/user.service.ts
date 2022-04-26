@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { IUser } from './interfaces';
-import { StorageService } from './storage.service';
 
 export interface CreateUserDto { name: string, email: string, password: string }
 
@@ -17,13 +16,13 @@ export class UserService {
     return !!this.currentUser;
   }
 
-  constructor(private storage: StorageService, private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient) {
     console.log('UserService#constructor')
   }
 
   login$(userData: { email: string, password: string }): Observable<IUser> {
     return this.httpClient
-      .post<IUser>(`${environment.apiUrl}/users/login`, userData, { withCredentials: true, observe: 'response' })
+      .post<IUser>(`${environment.apiUrl}/users/login`, userData, { observe: 'response' })
       .pipe(
         tap(response => console.log(response)),
         map(response => response.body as any),
