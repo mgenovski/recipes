@@ -17,12 +17,22 @@ export class UserService {
   }
 
   constructor(private httpClient: HttpClient) {
-    
+
   }
 
   login$(userData: { email: string, password: string }): Observable<IUser> {
     return this.httpClient
       .post<IUser>(`${environment.apiUrl}/users/login`, userData, { observe: 'response' })
+      .pipe(
+        tap(response => {}),
+        map(response => response.body as any),
+        tap(user => this.currentUser = user)
+      )
+  }
+
+  register$(email: string, password: string, name: string): Observable<IUser> {
+    return this.httpClient
+      .post<IUser>(`${environment.apiUrl}/users/register`, {email, password, name}, { observe: 'response' })
       .pipe(
         tap(response => {}),
         map(response => response.body as any),
@@ -39,7 +49,4 @@ export class UserService {
     localStorage.clear();
   }
 
-  register$(userData: CreateUserDto): Observable<IUser> {
-    return this.httpClient.post<IUser>(`${environment.apiUrl}/register`, userData, { withCredentials: true })
-  }
 }

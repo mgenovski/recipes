@@ -21,8 +21,8 @@ export function emailValidator(control: AbstractControl): ValidationErrors | nul
 
 
 export function passwordMatch(passwordFormControl: AbstractControl) {
-    const validtorFn: ValidatorFn = (rePasswordFormControl: AbstractControl) => {
-        if (passwordFormControl.value !== rePasswordFormControl.value) {
+    const validtorFn: ValidatorFn = (repassFormControl: AbstractControl) => {
+        if (passwordFormControl.value !== repassFormControl.value) {
             return {
                 passwordMissmatch: true
             }
