@@ -1,6 +1,7 @@
 import { RouterModule, Routes } from "@angular/router";
 import { AddRecipePageComponent } from "./add-recipe-page/add-recipe-page.component";
 import { AllRecipesPageComponent } from "./all-recipes-page/all-recipes-page.component";
+import { EditRecipePageComponent } from "./edit-recipe-page/edit-recipe-page.component";
 import { HomeRecipesComponent } from "./home-recipes/home-recipes.component";
 import { RecipeDetailsPageComponent } from "./recipe-details-page/recipe-details-page.component";
 
@@ -16,6 +17,10 @@ const routes: Routes = [
     {
         path: 'add-recipe',
         component: AddRecipePageComponent,
+    },
+    {
+        path: 'edit/:recipeId',
+        component: EditRecipePageComponent,
     },
 
 ];

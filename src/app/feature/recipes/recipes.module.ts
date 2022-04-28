@@ -9,6 +9,7 @@ import { RecipeDetailsPageComponent } from './recipe-details-page/recipe-details
 import { AddRecipePageComponent } from './add-recipe-page/add-recipe-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UrlValidatorDirective } from './url-validator.directive';
+import { EditRecipePageComponent } from './edit-recipe-page/edit-recipe-page.component';
 
 
 
@@ -20,7 +21,8 @@ import { UrlValidatorDirective } from './url-validator.directive';
     HomeRecipesComponent,
     RecipeDetailsPageComponent,
     AddRecipePageComponent,
-    UrlValidatorDirective
+    UrlValidatorDirective,
+    EditRecipePageComponent
   ],
   imports: [
     CommonModule,
