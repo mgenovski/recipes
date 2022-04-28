@@ -32,7 +32,7 @@ export class UserService {
 
   register$(email: string, password: string, name: string): Observable<IUser> {
     return this.httpClient
-      .post<IUser>(`${environment.apiUrl}/users/register`, {email, password, name, favorites: []}, { observe: 'response' })
+      .post<IUser>(`${environment.apiUrl}/users/register`, {email, password, name}, { observe: 'response' })
       .pipe(
         tap(response => {}),
         map(response => response.body as any),
