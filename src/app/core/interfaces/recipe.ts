@@ -5,5 +5,6 @@ export interface IRecipe<T = string> extends IBase {
     _owenrId: string;
     ownerName: string;
     imgUrl: string;
+    description: string;
   }
   
