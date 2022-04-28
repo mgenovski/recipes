@@ -6,4 +6,5 @@ export interface IUser extends IBase {
   name: string;
   password: string;
   accessToken: string;
+  favorites: string[];
 }
