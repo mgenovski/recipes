@@ -38,6 +38,15 @@ export class RecipeService {
       )
   }
 
+  editRecipe$(recipeData: any): Observable<IRecipe> {
+    return this.http
+      .put<IRecipe>(`${apiUrl}/recipes/${recipeData._id}`, JSON.stringify(recipeData), { headers: 
+        {'Content-Type':'application/json',['X-Authorization']: localStorage.getItem('accessToken') || ''}, observe: 'response' })
+      .pipe(
+        map(response => response.body as any)
+      )
+  }
+
   deleteRecipe$(recipeId: string): Observable<IRecipe> {
     return this.http
       .delete<IRecipe>(`${apiUrl}/recipes/${recipeId}`, { headers: 

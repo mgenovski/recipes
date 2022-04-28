@@ -1,1 +1,100 @@
-<p>edit-recipe-page works!</p>
+<div class="create">
+    <div *ngIf="!!addRecipeError" class="alert-error">{{addRecipeError}}</div>
+    <h2>Edit recipe</h2>
+    <form [formGroup]="createFormGroup" (ngSubmit)="handleCreate()">
+        <input formControlName="title" type="text" placeholder="Recipe title..." name="title">
+        <ng-container *ngIf="createFormGroup.controls['title'].touched && createFormGroup.controls['title'].invalid">
+            <p *ngIf="createFormGroup.controls['title'].errors?.['required']" class="error">Title is required!</p>
+            <p *ngIf="createFormGroup.controls['title'].errors?.['minlength']" class="error">Title must be at least 5
+                chars long!</p>
+        </ng-container>
+
+        <input formControlName="description" type="text" placeholder="Short description..." name="description">
+        <ng-container
+            *ngIf="createFormGroup.controls['description'].touched && createFormGroup.controls['description'].invalid">
+            <p *ngIf="createFormGroup.controls['description'].errors?.['required']" class="error">Description is
+                required!</p>
+            <p *ngIf="createFormGroup.controls['description'].errors?.['minlength']" class="error">Description must be
+                at least 5 chars long!</p>
+        </ng-container>
+
+        <input formControlName="imgUrl" type="text" placeholder="Image URL..." name="imgUrl">
+        <ng-container *ngIf="createFormGroup.controls['imgUrl'].touched && createFormGroup.controls['imgUrl'].invalid">
+            <p *ngIf="createFormGroup.controls['imgUrl'].errors?.['required']" class="error">Image URL is required!</p>
+            <p *ngIf="createFormGroup.controls['imgUrl'].errors?.['imgUrl']" class="error">Image URL is not valid!</p>
+        </ng-container>
+
+        <div class="select-container">
+            <label for="time">Total time</label>
+            <select name="time" id="time" #time>
+                <option value="15 min">15 min</option>
+                <option value="30 min">30 min</option>
+                <option value="45 min">45 min</option>
+                <option value="1 hour">1 hour</option>
+                <option value="1 hour 30 min">1 hour 30 min</option>
+                <option value="2 hours">2 hours</option>
+                <option value="2 hours 30 min">2 hours 30 min</option>
+                <option value="3 hours">3 hours</option>
+                <option value="3 hours 30 min">3 hours 30 min</option>
+                <option value="4 hours">4 hours</option>
+            </select>
+        </div>
+
+        <div class="select-container">
+            <label for="servings">Servings</label>
+            <select name="servings" id="servings" #servings>
+                <option value="1 person">1 person</option>
+                <option value="2 people">2 people</option>
+                <option value="3 people">3 people</option>
+                <option value="4 people">4 people</option>
+                <option value="5 people">5 people</option>
+                <option value="6 people">6 people</option>
+            </select>
+        </div>
+
+
+        <div class="select-container">
+            <label for="difficulty">Difficulty</label>
+            <select name="difficulty" id="difficulty" #difficulty>
+                <option value="easy">easy</option>
+                <option value="medium">medium</option>
+                <option value="hard">hard</option>
+            </select>
+        </div>
+
+        <div class="ingsteps-container">
+
+            <div class="ingredients">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li *ngFor="let ingredient of ingredients">
+                        {{ingredient}} 
+                        <span (click)="delIngredient(ingredient)">&#10060;</span>
+                    </li>
+                </ul>
+                <input formControlName="ingredient" type="text" name="ingredient" placeholder="100g salt..." #ingredient>
+                <button type="button" (click)="addIngredient()">Add ingredient</button>
+                <p *ngIf="!!ingredientError">{{ingredientError}}</p>
+                <p *ngIf="createFormGroup.controls['ingredient'].touched && ingredients.length<2">Add at least 2 ingredients.</p>
+            </div>
+
+            <div class="steps">
+                <h3>Steps</h3>
+                <ol>
+                    <li *ngFor="let step of steps">
+                        {{step}} 
+                        <span (click)="delStep(step)">&#10060;</span>
+                    </li>
+                </ol>
+                <input formControlName="step" type="text" name="step" placeholder="Some step..." #step>
+                <button type="button" (click)="addStep()">Add step</button>
+                <p *ngIf="!!stepError">{{stepError}}</p>
+                <p *ngIf="createFormGroup.controls['step'].touched && steps.length<2">Add at least 2 steps.</p>
+            </div>
+
+        </div>
+
+
+        <button [disabled]="createFormGroup.invalid || ingredients.length<2 || steps.length<2" disabled>Edit recipe</button>
+    </form>
+</div>
