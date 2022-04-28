@@ -95,4 +95,19 @@ export class RecipeDetailsPageComponent implements OnInit {
     });
   }
 
+
+  handleDelete(): void {
+    if(confirm("Are you sure to delete this recipe?")) {
+      this.recipeService.deleteRecipe$(this.recipe._id).subscribe({
+        next: user => {
+          this.router.navigate(['recipes']);
+        },
+        complete: () => {},
+        error: (err) => {
+          console.log('ne stana');
+        }
+      });
+    }
+  }
+
 }

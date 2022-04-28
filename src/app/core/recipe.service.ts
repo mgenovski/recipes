@@ -34,6 +34,17 @@ export class RecipeService {
       )
   }
 
+  deleteRecipe$(recipeId: string): Observable<IRecipe> {
+    return this.http
+      .delete<IRecipe>(`${apiUrl}/recipes/${recipeId}`, { headers: 
+        {'Content-Type':'application/json',['X-Authorization']: localStorage.getItem('accessToken') || ''}, observe: 'response' })
+      .pipe(
+        tap(response => {}),
+        map(response => response.body as any),
+        tap(user => {})
+      )
+  }
+
   likeRecipe$(recipeId: string) {
     return this.http
     .post<ILike>(`${apiUrl}/likes`, JSON.stringify({recipeId}), { headers: 
@@ -58,6 +69,6 @@ export class RecipeService {
       map(response => response.body as any),
       tap(user => {})
     )
-}
+  }
 
 }
