@@ -1,0 +1,146 @@
+.create {
+    width: 70%;
+    padding: 20px 20px 50px 20px;
+    background-color: #ecfce3;
+    border-radius: 10px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 500;
+}
+
+.create h2 {
+    font-size: 2em;
+    margin: 50px 0 30px 0;
+    font-family: Roboto;
+}
+
+.create h3 {
+    font-size: 1.3em;
+    font-family: Roboto;
+    color: #333;
+}
+
+.create input {
+    width: 50%;
+    font-size: 1.2em;
+    padding: 15px;
+    border-radius: 7px;
+    border: 1px solid #999;
+    display: block;
+    margin: 20px auto;
+}
+
+.create label {
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: 500;
+    color: #555;
+}
+
+.create .select-container {
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+    text-align: right;
+}
+
+.create select {
+    font-size: 1.2em;
+    padding: 15px;
+    border-radius: 7px;
+    border: 1px solid #999;
+    display: inline-block;
+    margin: 20px auto;
+    width: 80%;
+    color: #555;
+    background-color: #fff;
+}
+
+.create button {
+    border-radius: 7px;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    background-color: #ff642b;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.6s;
+    border: 1px solid #f95a20;
+}
+
+.create button:hover {
+    background-color: #FF8051;
+}
+
+.create button:disabled {
+    background-color: #faa586;
+    cursor: default;
+    color: rgb(228, 228, 228);
+    border: 1px solid #faa586;
+}
+
+.alert-error {
+    width: 50%;
+    border: 2px solid red;
+    border-radius: 7px;
+    color: red;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.create p {
+    margin: 10px;
+    color: #ef480b;
+}
+
+.create .ingsteps-container {
+    display: grid;
+    border: 1px soli black;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+.create .ingsteps-container input {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 1em;
+    margin-right: 15px;
+    border-radius: 7px;
+    border: 1px solid #999;
+}
+
+.create .ingsteps-container button {
+    border-radius: 7px;
+    padding: 10px 15px;
+    font-size: 1em;
+    background-color: #0090c5;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.6s;
+    border: 1px solid #0077a1;
+    display: inline-block;
+}
+
+.create .ingsteps-container ul {
+    margin: 20px auto;
+    list-style-type: disc;
+    text-align: left;
+    width: 50%;
+}
+
+.create .ingsteps-container ol {
+    margin: 20px auto;
+    list-style-type: decimal;
+    text-align: left;
+    width: 50%;
+}
+
+.create .ingsteps-container li {
+    color: #555;
+    margin-top: 10px;
+}
+
+.create .ingsteps-container span {
+    cursor: pointer;
+}

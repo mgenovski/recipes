@@ -11,6 +11,7 @@
                 <li><a routerLink="/register">Register</a></li>
             </ng-container>
             <ng-container *ngIf="!!isLogged">
+                <li><a routerLink="/add-recipe">Add a recipe</a></li>
                 <li><a href="#" (click)="logoutHandler()">Logout</a></li>
             </ng-container>
         </ul>
