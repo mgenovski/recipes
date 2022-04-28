@@ -80,11 +80,15 @@ export class AddRecipePageComponent implements OnInit {
   }
 
   delStep(step: string) {
-    this.steps.splice(this.steps.indexOf(step), 1);
+    if(confirm("Are you sure to delete this step?")) {
+      this.steps.splice(this.steps.indexOf(step), 1);
+    }
   }
 
   delIngredient(ingredient: string) {
-    this.ingredients.splice(this.ingredients.indexOf(ingredient), 1);
+    if(confirm("Are you sure to delete "+ingredient)) {
+      this.ingredients.splice(this.ingredients.indexOf(ingredient), 1);
+    }
   }
 
   handleCreate(): void {
