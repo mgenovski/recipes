@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UrlValidatorDirective } from './url-validator.directive';
 import { EditRecipePageComponent } from './edit-recipe-page/edit-recipe-page.component';
 import { FavoriteRecipesPageComponent } from './favorite-recipes-page/favorite-recipes-page.component';
+import { MyRecipesPageComponent } from './my-recipes-page/my-recipes-page.component';
 
 
 
@@ -24,7 +25,8 @@ import { FavoriteRecipesPageComponent } from './favorite-recipes-page/favorite-r
     AddRecipePageComponent,
     UrlValidatorDirective,
     EditRecipePageComponent,
-    FavoriteRecipesPageComponent
+    FavoriteRecipesPageComponent,
+    MyRecipesPageComponent
   ],
   imports: [
     CommonModule,

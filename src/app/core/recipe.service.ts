@@ -23,6 +23,10 @@ export class RecipeService {
     return this.http.get<IRecipe>(`${apiUrl}/recipes/${id}`);
   }
 
+  loadMyRecipes(): Observable<IRecipe[]> {
+    return this.http.get<IRecipe[]>(`${apiUrl}/recipes?where=_ownerId%3D%22${localStorage.getItem('id')}%22&sortBy=_createdOn%20desc`);
+  }
+
   addRecipe$(recipeData: any): Observable<IRecipe> {
     return this.http
       .post<IRecipe>(`${apiUrl}/recipes`, JSON.stringify(recipeData), { headers: 

@@ -4,6 +4,7 @@ import { AllRecipesPageComponent } from "./all-recipes-page/all-recipes-page.com
 import { EditRecipePageComponent } from "./edit-recipe-page/edit-recipe-page.component";
 import { FavoriteRecipesPageComponent } from "./favorite-recipes-page/favorite-recipes-page.component";
 import { HomeRecipesComponent } from "./home-recipes/home-recipes.component";
+import { MyRecipesPageComponent } from "./my-recipes-page/my-recipes-page.component";
 import { RecipeDetailsPageComponent } from "./recipe-details-page/recipe-details-page.component";
 
 const routes: Routes = [
@@ -26,6 +27,10 @@ const routes: Routes = [
     {
         path: 'favorites',
         component: FavoriteRecipesPageComponent,
+    },
+    {
+        path: 'my-recipes',
+        component: MyRecipesPageComponent,
     },
 
 ];

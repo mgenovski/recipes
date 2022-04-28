@@ -1,0 +1,16 @@
+.recipes {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.recipes h2 {
+    font-size: 2em;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.recipes-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+}
