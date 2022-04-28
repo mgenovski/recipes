@@ -4,6 +4,7 @@ import { map, tap } from 'rxjs/operators';
 import { IRecipe } from './interfaces';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { ILike } from './interfaces/like';
 
 const apiUrl = environment.apiUrl + '/data';
 
@@ -32,5 +33,31 @@ export class RecipeService {
         tap(user => {})
       )
   }
+
+  likeRecipe$(recipeId: string) {
+    return this.http
+    .post<ILike>(`${apiUrl}/likes`, JSON.stringify({recipeId}), { headers: 
+      {'Content-Type':'application/json',['X-Authorization']: localStorage.getItem('accessToken') || ''}, observe: 'response' })
+    .pipe(
+      tap(response => {}),
+      map(response => response.body as any),
+      tap(user => {})
+    )
+  }
+
+  getLikes(recipeId: string): Observable<ILike[]> {
+    return this.http.get<ILike[]>(`${apiUrl}/likes?where=recipeId%3D%22${recipeId}%22`);
+  }
+
+  dislikeRecipe(likeId: string) {
+    return this.http
+    .delete(`${apiUrl}/likes/${likeId}`, { headers: 
+      {'Content-Type':'application/json',['X-Authorization']: localStorage.getItem('accessToken') || ''}, observe: 'response' })
+    .pipe(
+      tap(response => {}),
+      map(response => response.body as any),
+      tap(user => {})
+    )
+}
 
 }

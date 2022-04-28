@@ -5,7 +5,8 @@
         <div class="buttons">
             <a *ngIf="isAuthor" class="button edit-button" routerLink="/edit/{{recipe._id}}">Edit</a>
             <button *ngIf="isAuthor" class="button del-button">Delete</button>
-            <button *ngIf="isLogged" class="button fav-button">Add to favorites</button>
+            <button *ngIf="isLogged && !hasLiked" class="button fav-button" (click)="handleLike()">Add to favorites</button>
+            <button *ngIf="isLogged && hasLiked" class="button fav-button" (click)="handleDislike()">Remove from favorites</button>
         </div>
     </span>
     <p class="description">{{recipe.description}}</p>
