@@ -60,6 +60,10 @@ export class RecipeService {
     return this.http.get<ILike[]>(`${apiUrl}/likes?where=recipeId%3D%22${recipeId}%22`);
   }
 
+  getFavorites(): Observable<ILike[]> {
+    return this.http.get<ILike[]>(`${apiUrl}/likes?where=_ownerId%3D%22${localStorage.getItem('id')}%22&sortBy=_createdOn%20desc`);
+  }
+
   dislikeRecipe(likeId: string) {
     return this.http
     .delete(`${apiUrl}/likes/${likeId}`, { headers: 

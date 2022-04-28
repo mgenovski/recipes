@@ -1,0 +1,9 @@
+<section class="recipes">
+    <h2>My Favorite Recipes</h2>
+    <div class="recipes-list" *ngIf="recipeList">
+        <app-recipe-list-item class="recipe-card" *ngFor="let recipe of recipeList" [recipe]="recipe"></app-recipe-list-item>
+    </div>
+    <div *ngIf="!recipeList || recipeList.length==0">
+        No Recipes!
+    </div>
+</section>
