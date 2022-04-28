@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RecipeService } from 'src/app/core/recipe.service';
 import { Router } from '@angular/router';
+import { urlValidator } from '../util';
 
 @Component({
   selector: 'app-add-recipe-page',
@@ -29,7 +30,7 @@ export class AddRecipePageComponent implements OnInit {
   createFormGroup: FormGroup = this.formBuilder.group({
     title: new FormControl('', [Validators.required, Validators.minLength(5)]),
     description: new FormControl(null, [Validators.required, Validators.minLength(5)]),
-    imgUrl: new FormControl(null, [Validators.required]),
+    imgUrl: new FormControl(null, [Validators.required, urlValidator]),
     ingredient: new FormControl(null, []),
     step: new FormControl(null, [])
   });

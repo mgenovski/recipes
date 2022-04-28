@@ -8,6 +8,7 @@ import { HomeRecipesComponent } from './home-recipes/home-recipes.component';
 import { RecipeDetailsPageComponent } from './recipe-details-page/recipe-details-page.component';
 import { AddRecipePageComponent } from './add-recipe-page/add-recipe-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UrlValidatorDirective } from './url-validator.directive';
 
 
 
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RecipeListComponent,
     HomeRecipesComponent,
     RecipeDetailsPageComponent,
-    AddRecipePageComponent
+    AddRecipePageComponent,
+    UrlValidatorDirective
   ],
   imports: [
     CommonModule,

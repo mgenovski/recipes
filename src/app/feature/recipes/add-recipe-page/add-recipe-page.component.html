@@ -22,6 +22,7 @@
         <input formControlName="imgUrl" type="text" placeholder="Image URL..." name="imgUrl">
         <ng-container *ngIf="createFormGroup.controls['imgUrl'].touched && createFormGroup.controls['imgUrl'].invalid">
             <p *ngIf="createFormGroup.controls['imgUrl'].errors?.['required']" class="error">Image URL is required!</p>
+            <p *ngIf="createFormGroup.controls['imgUrl'].errors?.['imgUrl']" class="error">Image URL is not valid!</p>
         </ng-container>
 
         <div class="select-container">
