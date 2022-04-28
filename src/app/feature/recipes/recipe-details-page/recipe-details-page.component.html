@@ -1,1 +1,41 @@
-<p>recipe-details-page works!</p>
+<div *ngIf="!!recipe" class="details">
+    <h2>{{recipe.title}}</h2>
+    <span class="added-by">
+        Added by {{recipe.ownerName}}
+        <div class="buttons">
+            <a *ngIf="isAuthor" class="button edit-button" routerLink="/edit/{{recipe._id}}">Edit</a>
+            <button *ngIf="isAuthor" class="button del-button">Delete</button>
+            <button *ngIf="isLogged" class="button fav-button">Add to favorites</button>
+        </div>
+    </span>
+    <p class="description">{{recipe.description}}</p>
+    <img src="{{recipe.imgUrl}}" alt="recipe image">
+    <div class="info-container">
+        <div class="info">
+            <h4 class="info-title">Prep time</h4>
+            <p>{{recipe.time}}</p>
+        </div>
+        <div class="info">
+            <h4 class="info-title">Difficulty</h4>
+            <p>{{recipe.difficulty}}</p>
+        </div>
+        <div class="info">
+            <h4 class="info-title">Servings</h4>
+            <p>{{recipe.servings}}</p>
+        </div>
+    </div>
+    <div class="ingsteps-container">
+        <div class="ingredients">
+            <h4>Ingredients</h4>
+            <ul>
+                <li *ngFor="let ingredient of recipe.ingredients">{{ingredient}}</li>
+            </ul>
+        </div>
+        <div class="steps">
+            <h4>Instructions</h4>
+            <ol>
+                <li *ngFor="let step of recipe.steps">{{step}}</li>
+            </ol>
+        </div>
+    </div>
+</div>
