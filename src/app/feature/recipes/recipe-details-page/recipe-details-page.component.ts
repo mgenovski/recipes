@@ -5,6 +5,8 @@ import { RecipeService } from 'src/app/core/recipe.service';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/core/user.service';
 import { ILike } from 'src/app/core/interfaces/like';
+import { IComment } from 'src/app/core/interfaces/comment';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-details-page',
@@ -16,14 +18,23 @@ export class RecipeDetailsPageComponent implements OnInit {
   recipe!: IRecipe;
   likes!: string[];
   likesInfo!: ILike[];
+  comments!: IComment[];
   public isAuthor: boolean = false;
   public isLogged: boolean = false;
   public hasLiked: boolean = false;
+
+  public commentError: string = ''
+
+  commentFormGroup: FormGroup = this.formBuilder.group({
+    text: new FormControl('', [Validators.required])
+  });
+
 
   constructor(
     private activatedRoute: ActivatedRoute, 
     private recipeService: RecipeService, 
     private userService: UserService,
+    private formBuilder: FormBuilder,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -54,9 +65,20 @@ export class RecipeDetailsPageComponent implements OnInit {
       },
       complete: () => {},
       error: (err) => {
-        console.log(err.error.message);
         if(err.error.message==='Resource not found') {
           this.likes = [];
+        }
+      }
+    });
+
+    this.recipeService.getComments(recipeId).subscribe({
+      next: comments => {
+        this.comments = comments;
+      },
+      complete: () => {},
+      error: (err) => {
+        if(err.error.message==='Resource not found') {
+          this.comments = [];
         }
       }
     });
@@ -75,6 +97,29 @@ export class RecipeDetailsPageComponent implements OnInit {
       complete: () => {},
       error: (err) => {
         console.log('ne stana');
+      }
+    });
+  }
+
+  handleComment(): void {
+    const recipeId = this.activatedRoute.snapshot.params['recipeId'];
+    const ownerName = localStorage.getItem('name');
+
+    const commentData = {
+      text: this.commentFormGroup.value.text,
+      recipeId: recipeId,
+      ownerName: ownerName,
+    }
+
+    this.commentError = '';
+    this.recipeService.postComment$(commentData).subscribe({
+      next: comment => {
+        this.comments.push(comment);
+        this.commentFormGroup.reset();
+      },
+      complete: () => {},
+      error: (err) => {
+        this.commentError = err.error.message;
       }
     });
   }

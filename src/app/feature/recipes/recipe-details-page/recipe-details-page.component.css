@@ -177,3 +177,90 @@
     border: 2px solid black;
     position: absolute;
 }
+
+.comments-title {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 30px;
+    width: 100%;
+}
+.comments-title h3 {
+    font-size: 3.8em;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    display: inline-block;
+}
+
+.comments-title span {
+    font-size: 2em;
+    margin-left: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.comment {
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.comment-form {
+    width: 100%;
+    height: 300px;
+    background-color: #F9F9F9;
+    border-radius: 7px;
+    position: relative;
+}
+
+.comment-form textarea {
+    width: 80%;
+    height: 300px;
+    background-color: inherit;
+    border: none;
+    padding: 30px;
+    resize: none;
+    color: #555;
+    font-size: 1.6em;
+}
+
+.comment-form textarea:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.comment-form button {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background-color: #ff642b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 10px 30px;
+    transition: all 0.5s;
+}
+
+.comment-form button:hover {
+    background-color: #FF8051;
+}
+
+h4 {
+    font-size: 2em;
+    font-family: 'Playfair Display', serif;
+    margin: 30px 0 20px 0;
+    font-weight: bold;
+}
+
+.author {
+    font-size: 1.3em;
+}
+
+.not-loggedIn p {
+    font-size: 1em;
+}
+
+.not-loggedIn a {
+    color: #ff642b;
+    text-decoration: none;
+}

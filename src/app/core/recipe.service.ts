@@ -5,6 +5,7 @@ import { IRecipe } from './interfaces';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { ILike } from './interfaces/like';
+import { IComment } from './interfaces/comment';
 
 const apiUrl = environment.apiUrl + '/data';
 
@@ -80,6 +81,21 @@ export class RecipeService {
   dislikeRecipe(likeId: string) {
     return this.http
     .delete(`${apiUrl}/likes/${likeId}`, { headers: 
+      {'Content-Type':'application/json',['X-Authorization']: localStorage.getItem('accessToken') || ''}, observe: 'response' })
+    .pipe(
+      tap(response => {}),
+      map(response => response.body as any),
+      tap(user => {})
+    )
+  }
+
+  getComments(recipeId: string): Observable<IComment[]> {
+    return this.http.get<IComment[]>(`${apiUrl}/comments?where=recipeId%3D%22${recipeId}%22`);
+  }
+
+  postComment$(commentData: any) {
+    return this.http
+    .post<ILike>(`${apiUrl}/comments`, JSON.stringify(commentData), { headers: 
       {'Content-Type':'application/json',['X-Authorization']: localStorage.getItem('accessToken') || ''}, observe: 'response' })
     .pipe(
       tap(response => {}),

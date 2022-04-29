@@ -39,4 +39,30 @@
             </ol>
         </div>
     </div>
+
+    <div class="comments-title">
+        <h3>Comments </h3>
+        <span>({{comments?.length}})</span>
+    </div>
+
+    <div *ngFor="let comment of comments" class="comment">
+        <h4 class="author">{{comment.ownerName}}</h4>
+        <p>{{comment.text}}</p>
+    </div>
+
+    <h4>Write a comment</h4>
+    <div *ngIf="isLogged" class="comment-form">
+        <form [formGroup]="commentFormGroup" (ngSubmit)="handleComment()">
+            <textarea formControlName="text" placeholder="Great recipe..."></textarea>
+            <button [disabled]="commentFormGroup.invalid">Add comment</button>
+            <ng-container
+                *ngIf="commentFormGroup.controls['text'].touched && commentFormGroup.controls['text'].invalid">
+                <p *ngIf="commentFormGroup.controls['text'].errors?.['required']" class="error">Comment text is required!</p>
+             </ng-container>
+             <p *ngIf="!!commentError">{{commentError}}</p>
+        </form>
+    </div>
+    <div *ngIf="!isLogged" class="not-loggedIn">
+        <p><a routerLink="/login">Login</a> to write a comment!</p>
+    </div>
 </div>
