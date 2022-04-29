@@ -1,0 +1,37 @@
+.recipes {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.recipes h2 {
+    font-size: 2.4em;
+    font-weight: 600;
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+}
+
+.recipes-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 30px;
+}
+
+.search-form {
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #555;
+    margin-bottom: 40px;
+}
+
+.search-form input {
+    width: 90%;
+    font-size: 1.2em;
+    border: none;
+    color: #333;
+}
+
+.search-form input:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}

@@ -1,0 +1,12 @@
+<section class="recipes">
+    <h2>Search Recipes</h2>
+    <div class="search-form">
+        <input type="text" name="search" placeholder="Name of recipe..." (input)="handleSearch()" #search>
+    </div>
+    <div class="recipes-list" *ngIf="searchList">
+        <app-recipe-list-item class="recipe-card" *ngFor="let recipe of searchList" [recipe]="recipe"></app-recipe-list-item>
+    </div>
+    <div *ngIf="!searchList || searchList.length==0">
+        No Recipes!
+    </div>
+</section>

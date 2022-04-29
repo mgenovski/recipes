@@ -6,6 +6,7 @@ import { FavoriteRecipesPageComponent } from "./favorite-recipes-page/favorite-r
 import { HomeRecipesComponent } from "./home-recipes/home-recipes.component";
 import { MyRecipesPageComponent } from "./my-recipes-page/my-recipes-page.component";
 import { RecipeDetailsPageComponent } from "./recipe-details-page/recipe-details-page.component";
+import { SearchRecipesPageComponent } from "./search-recipes-page/search-recipes-page.component";
 
 const routes: Routes = [
     {
@@ -31,6 +32,10 @@ const routes: Routes = [
     {
         path: 'my-recipes',
         component: MyRecipesPageComponent,
+    },
+    {
+        path: 'search',
+        component: SearchRecipesPageComponent,
     },
 
 ];

@@ -12,6 +12,7 @@ import { UrlValidatorDirective } from './url-validator.directive';
 import { EditRecipePageComponent } from './edit-recipe-page/edit-recipe-page.component';
 import { FavoriteRecipesPageComponent } from './favorite-recipes-page/favorite-recipes-page.component';
 import { MyRecipesPageComponent } from './my-recipes-page/my-recipes-page.component';
+import { SearchRecipesPageComponent } from './search-recipes-page/search-recipes-page.component';
 
 
 
@@ -26,7 +27,8 @@ import { MyRecipesPageComponent } from './my-recipes-page/my-recipes-page.compon
     UrlValidatorDirective,
     EditRecipePageComponent,
     FavoriteRecipesPageComponent,
-    MyRecipesPageComponent
+    MyRecipesPageComponent,
+    SearchRecipesPageComponent
   ],
   imports: [
     CommonModule,
