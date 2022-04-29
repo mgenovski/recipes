@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IUser } from '../interfaces';
 import { UserService } from '../user.service';
 
@@ -18,7 +19,7 @@ export class HeaderComponent implements OnInit {
     return this.userService.currentUser;
   }
 
-  constructor(public userService: UserService) {
+  constructor(public userService: UserService, private router: Router) {
 
   }
 
@@ -27,6 +28,7 @@ export class HeaderComponent implements OnInit {
 
   logoutHandler(): void {
     this.userService.logout();
+    this.router.navigate(['']);
   }
 
 }
