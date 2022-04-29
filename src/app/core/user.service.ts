@@ -49,4 +49,8 @@ export class UserService {
     localStorage.clear();
   }
 
+  isLoggedIn() {
+    return !!localStorage.getItem('accessToken');
+  }
+
 }
