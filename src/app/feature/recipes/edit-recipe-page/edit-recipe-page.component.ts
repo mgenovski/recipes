@@ -152,7 +152,7 @@ export class EditRecipePageComponent implements OnInit {
 
     this.recipeService.editRecipe$(recipeData).subscribe({
       next: user => {
-        this.router.navigate(['']);
+        this.router.navigate([`recipe/${recipeData._id}`]);
       },
       complete: () => {},
       error: (err) => {
