@@ -23,6 +23,9 @@
             <p *ngIf="createFormGroup.controls['imgUrl'].errors?.['required']" class="error">Image URL is required!</p>
             <p *ngIf="createFormGroup.controls['imgUrl'].errors?.['imgUrl']" class="error">Image URL is not valid!</p>
         </ng-container>
+        <ng-container *ngIf="!createFormGroup.controls['imgUrl'].invalid">
+            <img [attr.src]="createFormGroup.controls['imgUrl'].value" onError="this.src = 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png'" alt="recipe image" style="width: 50%;">
+        </ng-container>
 
         <div class="select-container">
             <label for="time">Total time</label>
