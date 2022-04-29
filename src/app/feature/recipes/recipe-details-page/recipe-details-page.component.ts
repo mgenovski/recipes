@@ -67,6 +67,7 @@ export class RecipeDetailsPageComponent implements OnInit {
       error: (err) => {
         if(err.error.message==='Resource not found') {
           this.likes = [];
+          this.likesInfo = [];
         }
       }
     });
